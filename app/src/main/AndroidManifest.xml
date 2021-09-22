@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.uiproject"
-    >
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    package="com.example.uiproject">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -12,9 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UIProject">
         <activity
+            android:name=".Details_Activity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".GIFY_ACTIVITY"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -28,7 +34,8 @@
         </activity>
         <activity
             android:name=".MyFilesActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
     </application>
 
 </manifest>

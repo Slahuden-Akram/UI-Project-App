@@ -1,6 +1,7 @@
 package com.example.uiproject;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,9 +36,23 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.holder> {
 
     @Override
     public void onBindViewHolder(@NonNull holder holder, int position) {
+        final DataModel temp = dataModels.get(position);
 
         holder.tv.setText(dataModels.get(position).getName());
         Picasso.get().load(dataModels.get(position).getImage()).into(holder.img1);
+
+        holder.img1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context,Details_Activity.class);
+                intent.putExtra("Image",temp.getImage());
+                intent.putExtra("Name",temp.getName());
+                intent.putExtra("Desc", temp.getDesc());
+                intent.putExtra("Id", temp.getId());
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
